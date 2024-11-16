@@ -27,7 +27,7 @@ export const App = () => {
   const [comments, setComments] = useState<Comment[]>([]);
   const [loadingComments, setLoadingComments] = useState(false);
   const [errorLoadComments, setErrorLoadComments] = useState<boolean>(false);
-  const [writeCommen, setWriteCommen] = useState<boolean>(false);
+  const [writeComment, setWriteComment] = useState<boolean>(false);
 
   useEffect(() => {
     getUsers().then(setUsers);
@@ -39,9 +39,6 @@ export const App = () => {
       .then(setPosts)
       .catch(() => {
         setErrorLoadPosts(true);
-        setInterval(() => {
-          setErrorLoadPosts(false);
-        }, 3000);
       })
       .finally(() => setLoadingPosts(false));
   }
@@ -52,9 +49,6 @@ export const App = () => {
       .then(setComments)
       .catch(() => {
         setErrorLoadComments(true);
-        setInterval(() => {
-          setErrorLoadComments(false);
-        }, 3000);
       })
       .finally(() => setLoadingComments(false));
   }
@@ -78,7 +72,7 @@ export const App = () => {
                   setUserSelected={setUserSelected}
                   getPostUser={getPostsUser}
                   setOpenPostDetails={setOpenPostDetails}
-                  setWriteCommen={setWriteCommen}
+                  setWriteComment={setWriteComment}
                   setPosts={setPosts}
                   setPost={setPost}
                 />
@@ -113,7 +107,7 @@ export const App = () => {
                     openPostDetails={openPostDetails}
                     setOpenPostDetails={setOpenPostDetails}
                     getCommentsPost={getCommentsPost}
-                    setWriteCommen={setWriteCommen}
+                    setWriteComment={setWriteComment}
                   />
                 )}
               </div>
@@ -138,8 +132,8 @@ export const App = () => {
                   setComments={setComments}
                   loadingComments={loadingComments}
                   errorLoadComments={errorLoadComments}
-                  writeCommen={writeCommen}
-                  setWriteCommen={setWriteCommen}
+                  writeComment={writeComment}
+                  setWriteComment={setWriteComment}
                 />
               )}
             </div>

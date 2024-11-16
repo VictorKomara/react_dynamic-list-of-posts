@@ -6,7 +6,7 @@ type Props = {
   openPostDetails: number;
   setOpenPostDetails: (openPostDetails: number) => void;
   getCommentsPost: (post: Post) => void;
-  setWriteCommen: (writeCommen: boolean) => void;
+  setWriteComment: (writeComment: boolean) => void;
 };
 
 export const PostsList: React.FC<Props> = ({
@@ -15,7 +15,7 @@ export const PostsList: React.FC<Props> = ({
   openPostDetails,
   setOpenPostDetails,
   getCommentsPost,
-  setWriteCommen,
+  setWriteComment,
 }) => (
   <div data-cy="PostsList">
     <p className="title">Posts:</p>
@@ -48,7 +48,7 @@ export const PostsList: React.FC<Props> = ({
                     className="button is-link"
                     onClick={() => {
                       setOpenPostDetails(0);
-                      setWriteCommen(false);
+                      setWriteComment(false);
                     }}
                   >
                     Close
@@ -62,7 +62,7 @@ export const PostsList: React.FC<Props> = ({
                       setOpenPostDetails(id);
                       getCommentsPost(post);
                       setPost(post);
-                      setWriteCommen(false);
+                      setWriteComment(false);
                     }}
                   >
                     Open

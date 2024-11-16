@@ -11,8 +11,8 @@ type Props = {
   setComments: (comments: Comment[]) => void;
   loadingComments: boolean;
   errorLoadComments: boolean;
-  writeCommen: boolean;
-  setWriteCommen: (writeCommen: boolean) => void;
+  writeComment: boolean;
+  setWriteComment: (writeCommen: boolean) => void;
 };
 
 export const PostDetails: React.FC<Props> = ({
@@ -21,10 +21,10 @@ export const PostDetails: React.FC<Props> = ({
   setComments,
   loadingComments,
   errorLoadComments,
-  writeCommen,
-  setWriteCommen,
+  writeComment,
+  setWriteComment,
 }) => {
-  function removeDelete(comment: Comment) {
+  function removeComment(comment: Comment) {
     setComments([...comments.filter(commentary => commentary !== comment)]);
     deleteComment(comment.id).catch(() => setComments([...comments]));
   }
@@ -79,7 +79,7 @@ export const PostDetails: React.FC<Props> = ({
                       type="button"
                       className="delete is-small"
                       aria-label="delete"
-                      onClick={() => removeDelete(comment)}
+                      onClick={() => removeComment(comment)}
                     />
                   </div>
 
@@ -90,19 +90,19 @@ export const PostDetails: React.FC<Props> = ({
               );
             })}
 
-          {!writeCommen && !errorLoadComments && !loadingComments && (
+          {!writeComment && !errorLoadComments && !loadingComments && (
             <button
               data-cy="WriteCommentButton"
               type="button"
               className="button is-link"
-              onClick={() => setWriteCommen(true)}
+              onClick={() => setWriteComment(true)}
             >
               Write a comment
             </button>
           )}
         </div>
 
-        {writeCommen && (
+        {writeComment && (
           <NewCommentForm
             postId={post?.id}
             comments={comments}

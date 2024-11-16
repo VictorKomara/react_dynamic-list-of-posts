@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { User } from '../types/User';
 import classNames from 'classnames';
+import { Post } from '../types/Post';
 
 type Props = {
   users: User[];
@@ -8,9 +9,9 @@ type Props = {
   setUserSelected: (userSelected: User) => void;
   getPostUser: (user: User) => void;
   setOpenPostDetails: (openPostDetails: number) => void;
-  setWriteCommen: (writeCommen: boolean) => void;
-  setPosts: ([]) => void;
-  setPost: (post: null) => void;
+  setWriteComment: (writeComment: boolean) => void;
+  setPosts: (posts: Post[]) => void;
+  setPost: (post: Post | null) => void;
 };
 
 export const UserSelector: React.FC<Props> = ({
@@ -19,7 +20,7 @@ export const UserSelector: React.FC<Props> = ({
   setUserSelected,
   getPostUser,
   setOpenPostDetails,
-  setWriteCommen,
+  setWriteComment,
   setPosts,
   setPost,
 }) => {
@@ -65,7 +66,7 @@ export const UserSelector: React.FC<Props> = ({
                 setClickedDropdown(false);
                 getPostUser(user);
                 setOpenPostDetails(0);
-                setWriteCommen(false);
+                setWriteComment(false);
                 setPosts([]);
                 setPost(null);
               }}
